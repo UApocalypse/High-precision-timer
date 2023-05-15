@@ -1,0 +1,14 @@
+//高精度计时器模块初始化
+//init timer
+LARGE_INTEGER nFreq;
+LARGE_INTEGER nBeginTime;
+LARGE_INTEGER nEndTime;
+double time;
+QueryPerformanceFrequency(&nFreq);
+QueryPerformanceCounter(&nBeginTime);
+/*
+content
+*/
+QueryPerformanceCounter(&nEndTime);
+time = (double)(nEndTime.QuadPart - nBeginTime.QuadPart) / (double)nFreq.QuadPart;
+printf("%lf秒\n", time);
